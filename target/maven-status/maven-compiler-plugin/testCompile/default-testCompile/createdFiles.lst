@@ -1,0 +1,4 @@
+org\sonar\samples\php\MyPhpRulesTest.class
+org\sonar\samples\php\checks\ForbiddenFunctionUseCheckTest.class
+org\sonar\samples\php\checks\SQLInjectionCheckTest.class
+org\sonar\samples\php\checks\OtherForbiddenFunctionUseCheckTest.class

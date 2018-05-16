@@ -1,0 +1,16 @@
+<h2>Noncompliant Code Example</h2>
+<pre>
+    $passwordDB = sha1($data[0]['login'].'*'.$password);
+    $passwordDB = sha1($bForm->get('email')->getData()
+							.'*‘
+							.md5(rand(1,9999).microtime()));
+
+</pre>
+    <h2>Compliant Solution</h2>
+<pre>
+    $passwordDB = hash('sha256', '$data[0]['login'].'*'.$password');
+    $passwordDB = hash('sha256', '$bForm->get('email')->getData()
+							.'*‘
+							.hash('sha256', 'rand(1,9999).microtime())');
+
+</pre>

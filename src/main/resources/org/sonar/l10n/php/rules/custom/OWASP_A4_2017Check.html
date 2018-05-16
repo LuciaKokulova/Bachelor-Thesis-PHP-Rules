@@ -1,0 +1,22 @@
+<h2>Noncompliant Code Example</h2>
+<pre>
+    XML;
+
+    $dom = new DOMDocument();
+    $dom->loadXML($xml);
+
+    // Prints Test.
+    print $dom->textContent;
+
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+    XML;
+
+    libxml_disable_entity_loader(true);
+    $dom = new DOMDocument();
+    $dom->loadXML($xml);
+
+    // Prints Test.
+    print $dom->textContent;
+</pre>

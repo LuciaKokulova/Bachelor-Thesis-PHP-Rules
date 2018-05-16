@@ -1,0 +1,20 @@
+<p>
+    The following data manipulation statements should be used with function bindParam(), to avoid SQLInjection:
+</p>
+<ul>
+    <li>SELECT</li>
+    <li>DELETE</li>
+    <li>INSERT</li>
+    <li>UPDATE</li>
+</ul>
+<h2>Noncompliant Code Example</h2>
+<pre>
+    $statement = $result -> query("SELECT password FROM tbl_user WHERE name = '$name' "); // Noncompliant
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+    $statement = $this->sqlConnection->prepare('SELECT password	FROM tbl_user
+                                                WHERE name=:name');
+    $statement->bindParam(':name', $name, \PDO::PARAM_STR);
+    $result = $statement->execute();
+</pre>

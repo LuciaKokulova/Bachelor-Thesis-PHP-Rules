@@ -1,0 +1,12 @@
+<h2>Noncompliant Code Example</h2>
+<pre>
+     $password   = substr(sha1(microtime().rand()),0,12);
+     $passwordDB = sha1($data[0]['login'].'*'.$password);
+     $actPwdLink = sha1(md5(microtime()).rand());
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+     $password   = substr(sha1(microtime().random_int()),0,12);
+     $passwordDB = sha1($data[0]['login'].'*'.$password);
+     $actPwdLink = sha1(md5(microtime()).random_int());
+</pre>
